@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pro Tic-Tac-Toe</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#a5b4fc] text-white min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <!-- Floating Background Icons (Pure CSS/SVG) -->
+    <div class="floating top-[15%] left-[10%] rotate-[-15deg]">
+        <div class="w-16 h-16 bg-[#3d458c] rounded-[1.5rem] flex items-center justify-center shadow-lg">
+            <span class="text-3xl text-[#fde047]">★</span>
+        </div>
+    </div>
+    <div class="floating bottom-[20%] right-[10%] rotate-[12deg]">
+        <div class="w-20 h-20 bg-[#3d458c] rounded-[1.8rem] flex items-center justify-center shadow-lg">
+            <span class="text-4xl text-[#86efac]">🌱</span>
+        </div>
+    </div>
+    <div class="floating top-[40%] right-[5%] rotate-[-10deg]">
+        <div class="w-14 h-14 bg-[#3d458c] rounded-[1.2rem] flex items-center justify-center shadow-lg">
+            <span class="text-2xl text-[#f472b6]">❤</span>
+        </div>
+    </div>
+
+    <!-- Winner Message Overlay -->
+    <div class="msg-container hide overlay">
+        <h2 class="text-2xl uppercase tracking-widest text-[#a5b4fc] mb-2">Game Over</h2>
+        <p id="msg" class="win-title">X WINS!</p>
+        <button id="new-btn" class="btn-play">PLAY AGAIN</button>
+    </div>
+
+    <main class="flex flex-col items-center gap-10 relative z-10">
+        <header class="text-center">
+            <h1 class="text-7xl font-bold tracking-tight mb-4 drop-shadow-lg">TIC TAC TOE</h1>
+            <div class="flex items-center justify-center gap-6">
+                <div class="flex flex-col items-center">
+                    <span class="text-[#3d458c] font-bold text-sm uppercase">Player X</span>
+                    <span id="score-x" class="text-4xl font-bold">0</span>
+                </div>
+                <div class="w-[2px] h-10 bg-white/20"></div>
+                <div class="flex flex-col items-center">
+                    <span class="text-[#3d458c] font-bold text-sm uppercase">Player O</span>
+                    <span id="score-o" class="text-4xl font-bold">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="console-container">
+            <!-- Grid Intersections Dots -->
+            <div class="dot top-[31%] left-[31.5%]"></div>
+            <div class="dot top-[31%] left-[65.5%]"></div>
+            <div class="dot top-[64%] left-[31.5%]"></div>
+            <div class="dot top-[64%] left-[65.5%]"></div>
+            
+            <div class="game">
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+            </div>
+
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <div class="loader"></div>
+                <span id="status-text">PLAYER X TURN</span>
+            </div>
+        </div>
+
+        <button id="reset-btn" class="text-[#3d458c] font-bold hover:text-white transition-colors flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            RESET ARENA
+        </button>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
